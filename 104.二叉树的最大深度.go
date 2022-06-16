@@ -14,7 +14,25 @@
  * }
  */
 func maxDepth(root *TreeNode) int {
+	res := traverse(root)
+	return res
 
 }
+
+func traverse(root *TreeNode) int {
+
+	if root == nil {
+		return 0
+	}
+	return max(traverse(root.Left)+1, traverse(root.Right)+1)
+}
+
+func max(n1 int, n2 int) int {
+	if n1 > n2 {
+		return n1
+	}
+	return n2
+}
+
 // @lc code=end
 
